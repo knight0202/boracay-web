@@ -1,0 +1,30 @@
+<script id="tmpl-selFacility" type="text/html">
+<@
+	_.forEach(list,function(o){
+@>
+	<option value="<@- o.id @>"><@- o.name @></option>	
+<@
+	});
+@>
+</script>
+
+<script id="tmpl-selWeatherStation" type="text/html">
+<@
+	_.forEach(list,function(o){
+@>
+	<option value="<@- o.id @>"><@- o.name @></option>	
+<@
+	});
+@>
+</script>
+
+<script id="tmpl-selWaterYears" type="text/html">
+<@
+	_.forEach(list,function(o){
+@>
+	<option value="<@- o @>"><@- o @></option>	
+<@
+	});
+@>
+</script>
+

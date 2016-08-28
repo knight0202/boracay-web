@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mashup.boracay.login.mapper.MemberMapper">
+	<select id="getUser" parameterType="com.mashup.boracay.login.vo.UserVo" resultType="com.mashup.boracay.login.vo.UserVo">
+		SELECT * 
+		FROM tb_member
+		<where>
+			1=1
+			<if test="memberSec !=null and memberSec !=''">
+				and memberSec = #{memberSec}
+			</if>
+			<if test="memberId !=null and memberId !=''">
+				and memberId = #{memberId}
+			</if>
+			<if test="memberPw !=null and memberPw !=''">
+				and memberPw = #{memberPw}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="setUser" parameterType="com.mashup.boracay.login.vo.UserVo">
+		INSERT INTO tb_member (memberId, memberPw)
+		VALUES (#{memberId}, #{memberPw})
+	</insert>
+	
+	<update id="updateUser" parameterType="com.mashup.boracay.login.vo.UserVo">
+		UPDATE tb_member
+		SET
+		userNm = #{userNm}
+		,memberPw = #{memberPw}
+		WHERE memberId = #{memberId}
+	</update>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<!-- for insert/update/delete return value -->
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<!-- <setting name="defaultStatementTimeout" value="30"/> -->
+	</settings>
+
+	<typeAliases>		
+	</typeAliases>
+
+	<!-- <mappers>
+		<mapper resource="sql-map/query/query-member-mapper.xml" />
+		<mapper resource="sql-map/query/query-account-mapper.xml" />
+	</mappers> -->
+</configuration>

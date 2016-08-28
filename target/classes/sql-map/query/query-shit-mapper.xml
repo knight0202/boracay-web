@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mashup.constipation.main.mapper.ShitMapper">
+	<select id="getShit" parameterType="com.mashup.constipation.main.vo.ShitVo" resultType="com.mashup.constipation.main.vo.ShitVo">
+		SELECT * 
+		FROM tb_shit
+		<where>
+			1=1
+			<if test="userKey !=null and userKey !=''">
+				and userKey = #{userKey}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="setShit" parameterType="com.mashup.constipation.main.vo.ShitVo">
+		INSERT INTO tb_shit (userKey, shitNm, shitDate, shitType, shitThick, shitColor, shitAmount)
+		VALUES (#{userKey},#{shitNm}, now(), #{shitType}, #{shitThick}, #{shitColor}, #{shitAmount})
+	</insert>
+	
+	<update id="updateShit" parameterType="com.mashup.constipation.main.vo.ShitVo">
+		UPDATE tb_shit
+		SET
+		userNm = #{userNm}
+		,userPw = #{userPw}
+		WHERE userId = #{userId}
+	</update>
+	<delete id="deleteShit" parameterType="com.mashup.constipation.main.vo.ShitVo">
+		DELETE from tb_shit
+		<where>
+			1=1
+			<if test="shitSec != null and shitSec =! ''">
+				and shitSec = #{shitSec}
+			</if>
+		</where>
+	</delete>
+</mapper>
